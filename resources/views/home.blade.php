@@ -62,7 +62,7 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Ecommerce</h1>
+        <h1 class="jumbotron-heading">Ecommerce</h1>        
         <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus ad quae cumque voluptates dolorum, neque eveniet, placeat obcaecati magnam vel fugit nulla autem, mollitia consequuntur praesentium sit? Veniam, facere.</p>
     </div>
 </section>
@@ -78,13 +78,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/55595c/fff" alt="First slide">
+                        <img class="d-block w-100" src="{{ $products[0]->cover }}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/a30ca3/fff" alt="Second slide">
+                        <img class="d-block w-100" src="{{ $products[1]->cover }}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide">
+                        <img class="d-block w-100" src="{{ $products[2]->cover }}" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -102,13 +102,13 @@
                 <div class="card-header bg-success text-white text-uppercase">
                     <i class="fa fa-heart"></i> Coup de coeur
                 </div>
-                <img class="img-fluid border-0" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                <img class="img-fluid border-0" src="{{ $fav[0]->cover }}" alt="Card image cap">
                 <div class="card-body">
-                    <h4 class="card-title text-center"><a href="product.html" title="View Product">Produit</a></h4>
-                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h4 class="card-title text-center"><a href="product.html" title="View Product">{{ $fav[0]->name }}</a></h4>
+                    <p class="card-text">{{ $fav[0]->description }}</p>
                     <div class="row">
                         <div class="col">
-                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                            <p class="btn btn-danger w-100">{{ $fav[0]->price }} &euro;</p>
                         </div>
                         <div class="col">
                             <a href="product.html" class="btn btn-success w-100">Voir</a>
@@ -131,13 +131,13 @@
                     <div class="row">
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                                <img class="card-img-top" src="{{ $last[0]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">Produit</a></h4>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[0]->name }}</a></h4>
+                                    <p class="card-text">{{ $last[0]->description }}</p>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                                            <p class="btn btn-danger w-100">{{ $last[0]->price }} &euro;</p>
                                         </div>
                                         <div class="col">
                                             <a href="cart.html" class="btn btn-success w-100">Ajouter</a>
@@ -148,13 +148,13 @@
                         </div>
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                                <img class="card-img-top" src="{{ $last[1]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">Produit</a></h4>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[1]->name }}</a></h4>
+                                    <p class="card-text">{{ $last[1]->description }}</p>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                                            <p class="btn btn-danger w-100">{{ $last[1]->price }} &euro;</p>
                                         </div>
                                         <div class="col">
                                             <a href="cart.html" class="btn btn-success w-100">Ajouter</a>
@@ -165,13 +165,13 @@
                         </div>
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                                <img class="card-img-top" src="{{ $last[2]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">Produit</a></h4>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[2]->name }}</a></h4>
+                                    <p class="card-text">{{ $last[2]->description }}</p>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                                            <p class="btn btn-danger w-100">{{ $last[2]->price }} &euro;</p>
                                         </div>
                                         <div class="col">
                                             <a href="cart.html" class="btn btn-success w-100">Ajouter</a>
@@ -182,13 +182,13 @@
                         </div>
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                                <img class="card-img-top" src="{{ $last[3]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">Produit</a></h4>
-                                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[3]->name }}</a></h4>
+                                    <p class="card-text">{{ $last[3]->description }}</p>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                                            <p class="btn btn-danger w-100">{{ $last[3]->price }} &euro;</p>
                                         </div>
                                         <div class="col">
                                             <a href="cart.html" class="btn btn-success w-100">Ajouter</a>
