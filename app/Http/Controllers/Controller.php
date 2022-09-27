@@ -16,7 +16,7 @@ class Controller extends BaseController
 
     public function index(){
         return view('home', [
-            'products' => Product::take(3)->get(),
+            'products' => Product::inRandomorder()->take(3)->get(),
             'fav' => Product::inRandomOrder()->where('favorite', 1)->get(),
             'last' => Product::orderBy('id', 'desc')->take(4)->get(),
         ]);
