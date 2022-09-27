@@ -62,8 +62,8 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Produit</h1>
-        <p class="lead text-muted mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro commodi aliquam veniam fuga suscipit itaque labore natus accusamus numquam, perferendis in? Incidunt libero dignissimos unde fuga voluptatem omnis accusamus delectus.</p>
+        <h1 class="jumbotron-heading">{{ $product->name }}</h1>
+        <p class="lead text-muted mb-0">{{ $product->description }}</p>
     </div>
 </section>
 
@@ -72,8 +72,8 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-                    <li class="breadcrumb-item"><a href="category.html">Catégorie</a></li>
+                    <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="/produits">Catégorie</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Produit</li>
                 </ol>
             </nav>
@@ -88,7 +88,7 @@
             <div class="card bg-light mb-3">
                 <div class="card-body">
                     <a href="" data-bs-toggle="modal" data-bs-target="#productModal">
-                        <img class="img-fluid" src="https://dummyimage.com/800x800/55595c/fff" />
+                        <img class="img-fluid" src="{{ $product->cover }}" />
                         <p class="text-center">Zoom</p>
                     </a>
                 </div>
@@ -99,16 +99,15 @@
         <div class="col-12 col-lg-6 add_to_cart_block">
             <div class="card bg-light mb-3">
                 <div class="card-body">
-                    <p class="price">99,00 &euro;</p>
-                    <p class="price_discounted">149.90 &euro;</p>
+                    <p class="price">{{ $product->price }} &euro;</p>
                     <form method="get" action="cart.html">
                         <div class="mb-3">
                             <label for="colors">Couleur</label>
                             <select class="form-select" id="colors">
                                 <option selected>Choisir</option>
-                                <option value="1">Bleu</option>
-                                <option value="2">Rouge</option>
-                                <option value="3">Vert</option>
+                                @foreach ($colors as $color)
+                                    <option value="{{ $color->id }}">{{ $color->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
@@ -295,13 +294,13 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="productModalLabel">Produit</h5>
+                <h5 class="modal-title" id="productModalLabel">{{ $product->name }}</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <img class="img-fluid" src="https://dummyimage.com/1200x1200/55595c/fff" />
+                <img class="img-fluid" src="{{ $product->cover }}" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

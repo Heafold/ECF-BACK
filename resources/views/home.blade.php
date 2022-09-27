@@ -104,14 +104,14 @@
                 </div>
                 <img class="img-fluid border-0" src="{{ $fav[0]->cover }}" alt="Card image cap">
                 <div class="card-body">
-                    <h4 class="card-title text-center"><a href="product.html" title="View Product">{{ $fav[0]->name }}</a></h4>
+                    <h4 class="card-title text-center"><a href="{{route('product', $fav[0]->id)}}" title="View Product">{{ $fav[0]->name }}</a></h4>
                     <p class="card-text">{{ $fav[0]->description }}</p>
                     <div class="row">
                         <div class="col">
                             <p class="btn btn-danger w-100">{{ $fav[0]->price }} &euro;</p>
                         </div>
                         <div class="col">
-                            <a href="product.html" class="btn btn-success w-100">Voir</a>
+                            <a href="{{route('product', $fav[0]->id)}}" class="btn btn-success w-100">Voir</a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $last[0]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[0]->name }}</a></h4>
+                                    <h4 class="card-title"><a href="{{route('product', $last[0]->id)}}" title="View Product">{{ $last[0]->name }}</a></h4>
                                     <p class="card-text">{{ $last[0]->description }}</p>
                                     <div class="row">
                                         <div class="col">
@@ -150,7 +150,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $last[1]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[1]->name }}</a></h4>
+                                    <h4 class="card-title"><a href="{{route('product', $last[1]->id)}}" title="View Product">{{ $last[1]->name }}</a></h4>
                                     <p class="card-text">{{ $last[1]->description }}</p>
                                     <div class="row">
                                         <div class="col">
@@ -167,7 +167,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $last[2]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[2]->name }}</a></h4>
+                                    <h4 class="card-title"><a href="{{route('product', $last[2]->id)}}" title="View Product">{{ $last[2]->name }}</a></h4>
                                     <p class="card-text">{{ $last[2]->description }}</p>
                                     <div class="row">
                                         <div class="col">
@@ -184,7 +184,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $last[3]->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last[3]->name }}</a></h4>
+                                    <h4 class="card-title"><a href="{{route('product', $last[3]->id)}}" title="View Product">{{ $last[3]->name }}</a></h4>
                                     <p class="card-text">{{ $last[3]->description }}</p>
                                     <div class="row">
                                         <div class="col">

@@ -16,19 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Controller::class, 'index'])->name('home');
 
-Route::get('/produits', function () {
-    return view('products');
-});
+Route::get('/produits', [Controller::class, 'products'])->name('products');
+
+Route::get('/produits/{produit}', [Controller::class, 'product'])->name('product');
+
+Route::get('/categories/{category}', [Controller::class, 'category'])->name('category');
 
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/12-smartphone', function () {
-    return view('category');
-});
 
-Route::get('/12-iphone-xs', function () {
-    return view('product');
-});
 
