@@ -14,5 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/produits', function () {
+    return view('products');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/12-smartphone', function () {
+    return view('category');
+});
+
+Route::get('/12-iphone-xs', function () {
+    return view('product');
+});
+
