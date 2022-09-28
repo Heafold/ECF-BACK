@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Controller::class, 'index'])->name('home');
 
+Route::get('/admin', [Controller::class, 'admin'])->name('admin');
+
+Route::get('/admin/produits', [Controller::class, 'showproducts'])->name('adminproduct');
+
 Route::get('/produits', [Controller::class, 'products'])->name('products');
 
 Route::get('/produits/{produit}', [Controller::class, 'product'])->name('product');

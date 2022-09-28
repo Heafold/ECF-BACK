@@ -47,4 +47,14 @@ class Controller extends BaseController
             'colors' => Color::all(),
         ]);
     }
+
+    public function admin(){
+        return view('admin');
+    }
+
+    public function showproducts(){
+        return view('adminproducts', [
+            'products' => Product::paginate(6),
+        ]);
+    }
 }
