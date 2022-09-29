@@ -20,6 +20,10 @@ Route::get('/admin', [Controller::class, 'admin'])->name('admin');
 
 Route::get('/admin/produits', [Controller::class, 'showproducts'])->name('adminproduct');
 
+Route::get('/admin/nouveau', [Controller::class, 'new'])->name('new');
+
+Route::post('/admin/nouveau', [Controller::class, 'store']);
+
 Route::get('/produits', [Controller::class, 'products'])->name('products');
 
 Route::get('/produits/{produit}', [Controller::class, 'product'])->name('product');

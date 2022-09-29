@@ -9,6 +9,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $casts = [
+        'released_at' => 'datetime',
+        'favorite' => 0,
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

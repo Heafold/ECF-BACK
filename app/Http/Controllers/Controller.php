@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
@@ -57,4 +58,33 @@ class Controller extends BaseController
             'products' => Product::paginate(6),
         ]);
     }
+
+    public function new(){
+        return view('adminnewproduct', [
+            'categories' => Category::all(),
+            'colors' => Color::all(),
+        ]);
+    }
+
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|min:3',
+        'description' => 'required|string|min:10',
+        'price' => 'required|integer|max:1000|min:99',
+        'cover' => 'nullable|image',
+        'color_id' => 'nullable',
+        'color_id' => 'nullable',
+        'categories_id' => 'nullable'
+        
+    ]);
+
+    if ($request->hasFile('cover')) {
+        $validated['cover'] = '/storage/'.$request->file('cover')->store('covers');
+    }
+
+    Product::create(collect($validated)->all());
+
+    return redirect('/admin');
+}
 }
