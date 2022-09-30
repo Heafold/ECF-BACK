@@ -75,38 +75,68 @@
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Dashboard - Produits</h1>
+                        <h1 class="h2">Dashboard - Modifier {{ $product->name }}</h1>
                     </div>
 
-                    <div class="col">
-                        <div class="row">
-                            @foreach ($products as $product)
-                                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card">
-                                        <img class="card-img-top" src="{{ $product->cover }}" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h4 class="card-title"><a href="{{route('product', $product->id)}}" title="View Product">{{ $product->name }}</a></h4>
-                                            <p class="card-text">{{ $product->description }}</p>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <a href="#" class="btn btn-warning w-100">Supprimer</a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="{{route('modif', $product->id)}}" class="btn btn-success w-100">Modifier</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-            
-                            <div class="d-flex col-12">
-                                {{$products->links()}}
+                    <div>
+                        <form method="post" class="w-1/2 mx-auto" enctype="multipart/form-data">
+                            @csrf
+                            @method('put')
+                    
+                            <div class="mb-3">
+                                <label class="block mb-1" for="name">Nom</label>
+                                <input class="w-full" type="text" name="name" id="name">
+                                @error('name')
+                                <p class="text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
+                    
+                            <div class="mb-3">
+                                <label class="block mb-1" for="description">Description</label>
+                                <textarea class="w-full" name="description" id="description"></textarea>
+                                @error('description')
+                                <p class="text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="color_id">Couleur</label>
+                                <select class="form-select" id="color_id">
+                                    <option selected>Choisir</option>
+                                    @foreach ($colors as $color)
+                                        <option value="{{ $color->id }}">{{ $color->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="categories_id">Catégorie</label>
+                                <select class="form-select" id="categories_id">
+                                    <option selected>Choisir</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label class="block mb-1" for="price">Prix</label>
+                                <input class="w-full" type="number" name="price" id="price">
+                                @error('price')
+                                <p class="text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                    
+                            <div class="mb-3">
+                                <label class="block mb-1" for="cover">Image</label>
+                                <input class="w-full" type="file" name="cover" id="cover" value="">
+                                
+                            </div>
+                    
                             
-                        </div>
+                            <button>Modifier</button>
+                        </form>
                     </div>
-            
                 </main>
             </div>
         </div>

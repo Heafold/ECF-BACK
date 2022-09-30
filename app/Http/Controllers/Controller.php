@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Storage;
 
 class Controller extends BaseController
 {
@@ -87,4 +88,40 @@ class Controller extends BaseController
 
     return redirect('/admin');
 }
+
+    public function modif($id){
+        return view('adminmodif', [
+            'product' => Product::findOrFail($id),
+            'categories' => Category::all(),
+            'colors' => Color::all(),
+        ]);
+    }
+
+    public function storemod(Product $product, Request $request)
+    {
+        
+        $validated = $request->validate([
+            'name' => 'required|string|min:3',
+            'description' => 'required|string|min:10',
+            'price' => 'required|integer|max:1000|min:99',
+            'cover' => 'nullable|image',
+            'color_id' => 'nullable',
+            'color_id' => 'nullable',
+            'categories_id' => 'nullable'
+        ]);
+
+        if ($request->hasFile('cover')) {
+            // On supprime l'ancienne image
+            if ($product->cover) {
+                Storage::delete(str($product->cover)->remove('/storage/'));
+            }
+
+            $validated['cover'] = '/storage/'.$request->file('cover')->store('covers');
+        }
+
+        $product->update(collect($validated)->all());
+
+
+        return redirect()->route('admin');
+    }
 }

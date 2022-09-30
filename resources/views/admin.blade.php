@@ -46,23 +46,30 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="dashboard.html">
+                                <a class="nav-link active" aria-current="page" href="/admin">
                                     <span data-feather="home"></span>
                                     Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin-list.html">
+                                <a class="nav-link" href="/admin/produits">
                                     <span data-feather="file"></span>
                                     Produits
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">
+                                <a class="nav-link" href="/admin/nouveau">
+                                    <span data-feather="file"></span>
+                                    Nouveau Produit
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">
                                     <span data-feather="file"></span>
                                     Retour
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                 </nav>

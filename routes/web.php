@@ -24,6 +24,10 @@ Route::get('/admin/nouveau', [Controller::class, 'new'])->name('new');
 
 Route::post('/admin/nouveau', [Controller::class, 'store']);
 
+Route::get('/admin/modif/{produit}', [Controller::class, 'modif'])->name('modif');
+
+Route::put('/admin/modif/{produit}', [Controller::class, 'storemod']);
+
 Route::get('/produits', [Controller::class, 'products'])->name('products');
 
 Route::get('/produits/{produit}', [Controller::class, 'product'])->name('product');
